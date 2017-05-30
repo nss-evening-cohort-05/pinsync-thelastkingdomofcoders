@@ -16,7 +16,7 @@ app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
 				console.log("pins in getPinsList",pins);
 			})
 			.catch((error)=>{
-				reject(error);
+				 reject(error);
 				console.log("error in getPinsList ",error);
 			});
 		});
