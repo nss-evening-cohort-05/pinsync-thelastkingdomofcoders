@@ -3,12 +3,13 @@
 <head>
 	<title>Inspire</title>
 		<link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/styles/main.css">
 </head>
-<body ng-app="Inspire">
-    <!-- <div ng-include="'/partials/navbar.html'"></div> -->
+<body ng-app="InspireApp">
+    <div ng-include="'/partials/navbar.html'"></div>
         
-        <div class="col-xs-8" ng-view>
+        <div ng-view>
     </div>
 
 
@@ -18,6 +19,9 @@
     <script type="text/javascript" src="/lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/lib/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="./javascripts/vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
 
     <!-- Personal Script Tags -->
@@ -25,16 +29,16 @@
     <script type="text/javascript" src="/javascripts/AppConfig.js"></script>
     <script type="text/javascript" src="/javascripts/AppConstants.js"></script>
 
-    <script type="text/javascript" src="/javascripts/factories/AuthFactoy.js"></script>
-    <script type="text/javascript" src="/javascripts/factories/BoardFactoy.js"></script>
-    <script type="text/javascript" src="/javascripts/factories/PinFactoy.js"></script>
-    <script type="text/javascript" src="/javascripts/factories/UserFactoy.js"></script>
+    <script type="text/javascript" src="/javascripts/factories/AuthFactory.js"></script>
+    <script type="text/javascript" src="/javascripts/factories/BoardFactory.js"></script>
+    <script type="text/javascript" src="/javascripts/factories/PinFactory.js"></script>
+    <script type="text/javascript" src="/javascripts/factories/UserFactory.js"></script>
 
-    <script src="/javascripts/controllers/AuthCtrl.js"></script>
-    <script src="/javascripts/controllers/EditCtrl.js"></script>
-    <script src="/javascripts/controllers/GeneralListCtrl.js"></script>
-    <script src="/javascripts/controllers/NewPostCtrl.js"></script>
-    <script src="/javascripts/controllers/UserBoardCtrl.js"></script>
-    <script src="/javascripts/controllers/NavCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/AuthCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/EditCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/GeneralListCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/NewPostCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/UserProfileCtrl.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/NavCtrl.js"></script>
 </body>
 </html>

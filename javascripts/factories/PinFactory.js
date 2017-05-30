@@ -12,6 +12,7 @@ app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
                         });
 				}
 				resolve(pins);
+				console.log("pins in getPinsList",pins);
 			})
 			.catch((error)=>{
 				reject(error);
@@ -21,5 +22,51 @@ app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
 	};
 
 
-	return { getPinsList:getPinsList };
+	let postNewPin = (newPin) => {
+        return $q((resolve, reject) => {
+            $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin))
+                .then((resultz) => {
+                    resolve(resultz);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in postNewPin",error);
+                });
+        });
+    };
+
+
+    let deletz = (pinId) => {
+        return $q((resolve, reject) => {
+            $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+                .then((resultz) => {
+                    resolve(resultz);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in delet pins",error);
+                });
+        });
+    };
+
+
+    let editPin = (item) => {
+        return $q((resolve, reject) => {
+            $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, JSON.stringify({
+                    uid: pins.uid,
+                    boardId: pins.boardId,
+                    url: pins.url,
+                    title:pins.title
+                })).then((resultz) => {
+                    resolve(resultz);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in editPin ",error);
+                });
+        });
+    };
+
+
+	return { getPinsList:getPinsList ,postNewPin:postNewPin ,deletz:deletz ,editPin:editPin};
 });
