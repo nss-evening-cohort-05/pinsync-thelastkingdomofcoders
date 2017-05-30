@@ -1,10 +1,11 @@
 app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
-	let getPinsList = (userId) =>{
+	let getPinsList = (boardId) =>{
 		let pins = [];
 		return new $q ((resolve,reject)=>{
-			$http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="uid"&equalTo="${userId}"`)
+			$http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
 			.then((fbItems)=>{
 				let pinsCollection = fbItems.data;
+				console.log("fbItems.data",fbItems.data);
 				if (pinsCollection !== null){
 					Object.keys(pinsCollection).forEach((key) => {
                             pinsCollection[key].id = key;
