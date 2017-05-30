@@ -1,1 +1,1 @@
-var app = angular.module("Inspire",["ngRoute"]);
+var app = angular.module("InspireApp",["ngRoute"]);
