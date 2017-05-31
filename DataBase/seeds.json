@@ -18,55 +18,64 @@
 			"uid": "4k1ePyzRTvaGf73grhPOFPb7fag1",
 			"boardId": "board0",
 			"url": "http://www.imgur.com/9rufrniuvnfu2vnefui",
-			"title": "This is funny!"
+			"title": "This is funny!",
+			"description": "Checkout this funny thing"
 		},
 		"pin1": {
 			"uid": "4k1ePyzRTvaGf73grhPOFPb7fag1",
 			"boardId": "board1",
 			"url": "https://www.pinterest.com/pin/259590366004733712/",
-			"title": "Food"
+			"title": "Food",
+			"description": "Checkout this food"
 		},
 		"pin2": {
 			"uid": "4k1ePyzRTvaGf73grhPOFPb7fag1",
 			"boardId": "board2",
 			"url": "https://www.pinterest.com/pin/715931671984737727/",
-			"title": "Cat"
+			"title": "Cat",
+			"description": "Checkout this cat"
 		},
 		"pin3": {
 			"uid": "ICSEdKu14ncCclNIP5AOSk22pJ82",
 			"boardId": "board3",
 			"url": "https://www.pinterest.com/pin/490259109421752363/",
-			"title": "Exercises!"
+			"title": "Exercises!",
+			"description": "Checkout these exercises"
 		},
 		"pin4": {
 			"uid": "ICSEdKu14ncCclNIP5AOSk22pJ82",
 			"boardId": "board4",
 			"url": "https://www.pinterest.com/pin/532550724674362432/",
-			"title": "nice places"
+			"title": "nice places",
+			"description": "Checkout these nice places"
 		},
 		"pin5": {
 			"uid": "ICSEdKu14ncCclNIP5AOSk22pJ82",
 			"boardId": "board5",
 			"url": "https://www.pinterest.com/pin/A-a-fQAQQFMDEGN0UkwpYpY/",
-			"title": "OMG their Eyes move!!!"
+			"title": "OMG their Eyes move!!!",
+			"description": "Checkout there eyes moving"
 		},
 		"pin6": {
 			"uid": "slduUjaZDQMyiBT7Fc2gfNp4zG83",
 			"boardId": "board6",
 			"url": "https://www.pinterest.com/pin/322851867008104374/",
-			"title": "Nice Car!!!"
+			"title": "Nice Car!!!",
+			"description": "Checkout this nice car"
 		},
 		"pin7": {
 			"uid": "slduUjaZDQMyiBT7Fc2gfNp4zG83",
 			"boardId": "board7",
 			"url": "https://www.pinterest.com/pin/505529126894735193/",
-			"title": "famouse"
+			"title": "famouse",
+			"description": "Checkout this famouse"		
 		},
 		"pin8": {
 			"uid": "slduUjaZDQMyiBT7Fc2gfNp4zG83",
 			"boardId": "board8",
 			"url": "https://www.pinterest.com/pin/498844096211329782/",
-			"title": "fashon"
+			"title": "fashon",			
+			"description": "Checkout this fashon"
 		}
 	},
 	"boards": {

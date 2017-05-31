@@ -49,9 +49,9 @@ app.config(function($routeProvider) {
             controller: 'GeneralListCtrl',
             resolve: {isAuth}
         })
-        .when('/newItem', {
-            templateUrl: 'partials/newItem.html',
-            controller: 'NewPostCtrl',
+        .when('/newpin', {
+            templateUrl: 'partials/newpin.html',
+            controller: 'NewPinCtrl',
             resolve: {isAuth}
         })
         .when('/userProfile', {
