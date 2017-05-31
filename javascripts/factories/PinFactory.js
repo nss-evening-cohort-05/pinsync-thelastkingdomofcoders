@@ -12,7 +12,7 @@ app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
                             pins.push(pinsCollection[key]);
                         });
 				}
-				resolve(pins);
+				resolve(fbIems.data);
 				console.log("pins in getPinsList",pins);
 			})
 			.catch((error)=>{
@@ -45,7 +45,7 @@ app.factory("PinFactory",function($q ,$http,FIREBASE_CONFIG){
                 })
                 .catch((error) => {
                     reject(error);
-                    console.log("error in delet pins",error);
+                    console.log("error in delete pins",error);
                 });
         });
     };

@@ -2,7 +2,7 @@ app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 	$scope.pins = [];
 
 	let getPins =()=>{
-		PinFactory.getPinsList($rootScope.pins.boardId)
+		PinFactory.getPinsList()
 		.then((pinz)=>{
 			$scope.pins = pinz;
 		})
