@@ -1,10 +1,18 @@
-<div class="form-group">
-    <input type="text" class="col-xs-6 col-xs-offset-3" placeholder="Search" ng-model="searchText">
+<div>
+  <input type="text" class="input-lg col-lg-4 col-lg-offset-4" placeholder="Search" ng-model="searchText">
+</div><br>
+<div>
+	<h1 class="text-center">Find Your Inspiration</h1>
 </div>
 <div ng-repeat="item in pins">
-    <h1>display pins here</h1>
-    <div class="panel panel-default">
-    <img src="{{item.url}}"  style="width:300px;height:300px;">
-    <p>{{item.title}}</p>
+	<div class="panel panel-success col-md-4">
+		<div class="panel-heading">
+			<h3 class="panel-title" ng-href="#!/home/{{item.boardId}}"><a>{{item.title}}</a></h3>
     </div>
+    <div class="panel-body">
+	    <img ng-src="{{item.url}}" style="width:300px;height:300px;">
+	    <p>{{item.title}}</p>
+        <button class="btn btn-danger fa fa-trash-o" ng-click="deleteSinglePin(item.id)"></button>
+	  </div>
+	</div>
 </div>
