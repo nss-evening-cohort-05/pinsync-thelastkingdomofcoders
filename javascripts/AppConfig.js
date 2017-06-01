@@ -69,5 +69,15 @@ app.config(function($routeProvider) {
             controller: 'AuthCtrl',
             resolve: {isAuth}
         })
+        .when('/newpin', {
+            templateUrl: 'partials/newpin.html',
+            controller: 'NewPinCtrl',
+            resolve: {isAuth}
+        })
+        .when('/newBoard', {
+            templateUrl: 'partials/newBoard.html',
+            controller: 'NewBoardCtrl',
+            resolve: {isAuth}
+        })
         .otherwise("/auth");
 });

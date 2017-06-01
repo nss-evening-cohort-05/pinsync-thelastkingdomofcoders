@@ -1,20 +1,26 @@
 app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
-	$scope.pins = [];
+	$scope.pin = {};
 
-	let getPins =()=>{
-		PinFactory.getPinsList($rootScope.pins.boardId)
-		.then((pinz)=>{
+	let getAllPins = () => {
+		PinFactory.getPinList()
+		.then((pinz) => {
 			$scope.pins = pinz;
-		})
-		.catch((error)=>{
-            console.log("error in getPins", error);
+		}).catch((error)=>{
+       console.log("error in getPins", error);
 		});
 	};
 
-	getPins();
+	getAllPins();
 
-
-
+	$scope.deleteSinglePin = (id)=>{
+		PinFactory.deletz(id)
+		.then(()=>{
+			getAllPins();
+		})
+		.catch((error)=>{
+			console.log("error in deleteSinglePin",error);
+		})
+	};
 
 
 });
