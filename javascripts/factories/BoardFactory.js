@@ -11,7 +11,7 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   		.then((newBoardResults)=>{
   			resolve(newBoardResults);
   		}).catch((error)=>{
-  			reject("postNewBoard errorv", error);
+  			reject("postNewBoard error", error);
   		});
 	});
   };
