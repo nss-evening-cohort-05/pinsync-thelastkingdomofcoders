@@ -26,6 +26,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
             users.push(userObject.data[key]);
           });
           resolve(users[0]);
+          console.log("users",users);
         })
         .catch((error) => {
           reject(error);

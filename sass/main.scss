@@ -1,2 +1,19 @@
 @import "colors";
 
+.profile-pic {
+	display: inline-block;
+	background-color: blue;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.username {
+	display: inline-block;
+	font-size: 3rem;
+}
+
+.aligner {
+	display: flex;
+	justify-content: center;
+}
