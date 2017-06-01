@@ -59,6 +59,11 @@ app.config(function($routeProvider) {
             controller: 'UserProfileCtrl',
             resolve: {isAuth}
         })
+        .when('/newBoard', {
+            templateUrl: 'partials/newBoard.html',
+            controller: '',
+            resolve: {isAuth}
+        })
         .when('/viewBoard', {
             templateUrl: 'partials/viewBoard.html',
             controller: '',
@@ -67,6 +72,16 @@ app.config(function($routeProvider) {
         .when('/logout', {
             templateUrl: 'partials/auth.html',
             controller: 'AuthCtrl',
+            resolve: {isAuth}
+        })
+        .when('/newpin', {
+            templateUrl: 'partials/newpin.html',
+            controller: 'NewPinCtrl',
+            resolve: {isAuth}
+        })
+        .when('/newBoard', {
+            templateUrl: 'partials/newBoard.html',
+            controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
         .otherwise("/auth");
