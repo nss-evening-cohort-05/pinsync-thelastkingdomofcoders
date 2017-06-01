@@ -1,5 +1,6 @@
 app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthFactory, UserFactory){
 	$scope.alerts = [];
+	$scope.boards =[];
 
 	$scope.auth = {
 		email:"d@d.com",
@@ -15,14 +16,17 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthFactory, 
 
 	let logMeIn = () => {
 		AuthFactory.authenticate($scope.auth).then((userCreds)=>{
-			//console.log("userCreds", userCreds);
+			// console.log("userCreds in logme in ", userCreds);
 			return UserFactory.getUser(userCreds.uid);
 		}, (error)=>{
 			$scope.alerts.push({msg: error.message});
 			console.log("authenticate error", error);
 		}).then((user) =>{
-			console.log("user", user);
 			$rootScope.user = user;
+			console.log("user",user);
+			// $scope.boards = boards;
+			$rootScope.user.uid;
+			// $rootScope.boardId = boards.boardId  ;
 			$location.url('/home');
 		}).catch((error) => {
 			console.log("getUser error", error);
