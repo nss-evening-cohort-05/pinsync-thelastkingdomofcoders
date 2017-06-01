@@ -12,8 +12,15 @@ app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 
 	getAllPins();
 
-
-
+	$scope.deleteSinglePin = (id)=>{
+		PinFactory.deletz(id)
+		.then(()=>{
+			getAllPins();
+		})
+		.catch((error)=>{
+			console.log("error in deleteSinglePin",error);
+		})
+	};
 
 
 });
