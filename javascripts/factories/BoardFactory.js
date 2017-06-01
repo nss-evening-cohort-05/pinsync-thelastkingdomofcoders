@@ -1,7 +1,9 @@
+
 //// Krissy's Console log/////
 console.log("BoardFactory");
 ////////////////////////////
 //// Krissy's Code /////
+
 app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
 	console.log("inside the BoardFactory app.factory");
   
@@ -22,5 +24,3 @@ return {postNewBoard:postNewBoard};
 
 
 });
-
-///////////////////
