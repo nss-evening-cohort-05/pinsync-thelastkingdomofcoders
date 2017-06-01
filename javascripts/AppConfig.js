@@ -59,6 +59,11 @@ app.config(function($routeProvider) {
             controller: 'UserProfileCtrl',
             resolve: {isAuth}
         })
+        .when('/newBoard', {
+            templateUrl: 'partials/newBoard.html',
+            controller: '',
+            resolve: {isAuth}
+        })
         .when('/viewBoard', {
             templateUrl: 'partials/viewBoard.html',
             controller: '',

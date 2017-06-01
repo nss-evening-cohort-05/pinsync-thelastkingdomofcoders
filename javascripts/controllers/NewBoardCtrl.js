@@ -10,4 +10,6 @@ app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope
 			console.log("error in new board response", error);
 		});
 	};
+
 });
+
