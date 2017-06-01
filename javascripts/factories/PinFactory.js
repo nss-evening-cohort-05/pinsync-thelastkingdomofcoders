@@ -15,7 +15,7 @@ let getPinList = () => {
                 resolve(pinz);
             }).catch((error) => {
                 reject(error);
-                console.log("error in getPinList",error);
+
             });
     });
 };
