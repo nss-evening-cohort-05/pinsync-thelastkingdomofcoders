@@ -1,9 +1,9 @@
 app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
-	$scope.pins = [];
+	$scope.pin = {};
 
-	let getPins =()=>{
-		PinFactory.getPinsList($rootScope.pins.boardId)
-		.then((pinz)=>{
+	let getAllPins =()=>{
+		PinFactory.getPinsList()
+		.then((pinz) => {
 			$scope.pins = pinz;
 		})
 		.catch((error)=>{
@@ -11,7 +11,7 @@ app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 		});
 	};
 
-	getPins();
+	getAllPins();
 
 
 
