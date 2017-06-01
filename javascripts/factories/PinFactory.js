@@ -35,6 +35,21 @@ let getPinList = () => {
     };
 
 
-    return {getPinList: getPinList ,deletz:deletz};
+    let postNewPin = (newPin) => {
+        return $q((resolve, reject) => {
+            $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin))
+                .then((resultz) => {
+                    resolve(resultz);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in postNewPin",error);
+                });
+        });
+    };
+
+
+
+    return {getPinList: getPinList ,deletz:deletz ,postNewPin:postNewPin};
 
 });

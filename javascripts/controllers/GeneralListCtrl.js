@@ -23,7 +23,4 @@ app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 	};
 
 
-
-
-
 });
