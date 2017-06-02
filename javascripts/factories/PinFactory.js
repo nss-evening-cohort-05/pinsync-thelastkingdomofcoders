@@ -15,7 +15,7 @@ let getPinList = () => {
                 resolve(pinz);
             }).catch((error) => {
                 reject(error);
-                console.log("error in getPinList",error);
+
             });
     });
 };
@@ -48,8 +48,8 @@ let getPinList = () => {
         });
     };
 
+    
 
-
-    return {getPinList: getPinList ,deletz:deletz ,postNewPin:postNewPin};
+    return {getPinList: getPinList ,deletz:deletz ,postNewPin:postNewPin };
 
 });

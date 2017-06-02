@@ -10,9 +10,9 @@
 			<h3 class="panel-title" ng-href="#!/home/{{item.boardId}}"><a>{{item.title}}</a></h3>
     </div>
     <div class="panel-body">
-	    <img ng-src="{{item.url}}" style="width:400px;height:400px;">
-	    <p>{{item.title}}  <button class="btn label-success fa fa-trash-o navbar-right" ng-click="deleteSinglePin(item.id)"></button></p>
-        
+	    <img ng-src="{{item.url}}" style="width:300px;height:300px;" >  
+	    <!-- <p>{{item.title}}</p> -->
+	    <p>{{item.title}}  <button class="btn label-success fa fa-trash-o navbar-right col-md-2 col-md-offset-1" ng-click="deleteSinglePin(item.id)"></button> <button class="btn label-success fa fa-pencil-square-o navbar-right col-md-2 col-md-offset-1" ng-click="EditPin(item.id)"></button>  <button class="btn label-success fa fa-share-alt  navbar-right col-md-2 col-md-offset-1" ng-click="EditPin(item.id)"></button></p>
 	  </div>
 	</div>
 </div>

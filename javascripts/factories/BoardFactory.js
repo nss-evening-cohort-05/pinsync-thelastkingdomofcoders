@@ -6,6 +6,7 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   		$http.post(`${FIREBASE_CONFIG.databaseURL}/boards.json`, JSON.stringify(newBoard))
   		.then((newBoardResults)=>{
   			resolve(newBoardResults);
+        console.log("newBoardResults", newBoardResults);
   		}).catch((error)=>{
   			reject("postNewBoard error", error);
   		});
@@ -15,5 +16,6 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
 
 
 return {postNewBoard:postNewBoard};
+
 
 });

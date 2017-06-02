@@ -1,7 +1,7 @@
 app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 	$scope.pin = {};
 
-	let getAllPins = () => {
+let getAllPins = () => {
 		PinFactory.getPinList()
 		.then((pinz) => {
 			$scope.pins = pinz;

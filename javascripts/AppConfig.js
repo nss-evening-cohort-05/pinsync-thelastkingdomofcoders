@@ -49,14 +49,19 @@ app.config(function($routeProvider) {
             controller: 'GeneralListCtrl',
             resolve: {isAuth}
         })
-        .when('/newItem', {
-            templateUrl: 'partials/newItem.html',
-            controller: 'NewPostCtrl',
+        .when('/newpin', {
+            templateUrl: 'partials/newpin.html',
+            controller: 'NewPinCtrl',
             resolve: {isAuth}
         })
         .when('/userProfile', {
             templateUrl: 'partials/userProfile.html',
             controller: 'UserProfileCtrl',
+            resolve: {isAuth}
+        })
+        .when('/newBoard', {
+            templateUrl: 'partials/newBoard.html',
+            controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
         .when('/viewBoard', {
