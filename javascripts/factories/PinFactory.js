@@ -1,4 +1,3 @@
-
 app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
 
 let getPinList = () => {
@@ -23,7 +22,6 @@ let getPinList = () => {
 
 
 	let deletz = (pinId) => {
-
         return $q((resolve, reject) => {
             $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
                 .then((resultz) => {
@@ -46,7 +44,6 @@ let getPinList = () => {
                 .catch((error) => {
                     reject(error);
                     console.log("error in postNewPin",error);
-
                 });
         });
     };
