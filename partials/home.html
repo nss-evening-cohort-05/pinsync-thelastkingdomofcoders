@@ -4,7 +4,7 @@
 <div>
 	<h1 class="text-center">Find Your Inspiration</h1>
 </div>
-<div ng-repeat="item in pins">
+<div ng-repeat="item in pins |filter:searchText">
 	<div class="panel panel-success col-md-4">
 		<div class="panel-heading">
 			<h3 class="panel-title" ng-href="#!/home/{{item.boardId}}"><a>{{item.title}}</a></h3>

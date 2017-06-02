@@ -19,7 +19,7 @@ app.controller("GeneralListCtrl", function($rootScope, $scope, PinFactory) {
 		})
 		.catch((error)=>{
 			console.log("error in deleteSinglePin",error);
-		})
+		});
 	};
 
 
