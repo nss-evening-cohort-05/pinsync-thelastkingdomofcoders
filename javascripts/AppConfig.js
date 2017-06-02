@@ -61,7 +61,7 @@ app.config(function($routeProvider) {
         })
         .when('/newBoard', {
             templateUrl: 'partials/newBoard.html',
-            controller: '',
+            controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
         .when('/viewBoard', {
