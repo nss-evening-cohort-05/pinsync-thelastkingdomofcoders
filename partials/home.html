@@ -1,11 +1,13 @@
 
 <div>
-  <input type="text" class="input-lg col-lg-4 col-lg-offset-4" placeholder="Search" ng-model="searchText">
-</div><br>
-<div>
 	<h1 class="text-center">Find Your Inspiration</h1>
 </div>
-<div ng-repeat="item in pins">
+<div>
+  <input type="text" class="input-lg col-lg-4 col-lg-offset-4" placeholder="Search" ng-model="searchText">
+</div>
+ <div class="clearfix"></div>
+
+<div ng-repeat="item in pins | filter: searchText">
 	<div class="panel panel-success col-md-4">
 		<div class="panel-heading">
 			<h3 class="panel-title" ng-href="#!/home/{{item.boardId}}"><a>{{item.title}}</a></h3>
