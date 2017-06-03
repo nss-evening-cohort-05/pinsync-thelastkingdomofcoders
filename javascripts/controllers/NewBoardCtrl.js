@@ -19,6 +19,5 @@ app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope
             console.log("deleteItem error", error);
         });
     };
-
 });
 

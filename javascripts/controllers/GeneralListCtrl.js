@@ -12,10 +12,11 @@ let getAllPins = () => {
 
 	getAllPins();
 
-	$scope.deleteSinglePin = (id)=>{
-		PinFactory.deletz(id)
+	$scope.deleteSinglePin = (pin)=>{
+		PinFactory.deletPinFromBoard(pin)
 		.then(()=>{
 			getAllPins();
+			console.log("deleteSinglePin");
 		})
 		.catch((error)=>{
 			console.log("error in deleteSinglePin",error);

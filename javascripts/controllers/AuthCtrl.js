@@ -25,7 +25,7 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthFactory, 
 			$rootScope.user = user;
 			console.log("user",user);
 			// $scope.boards = boards;
-			$rootScope.user.uid;
+			// $rootScope.user.uid;
 			// $rootScope.boardId = boards.boardId  ;
 			$location.url('/home');
 		}).catch((error) => {

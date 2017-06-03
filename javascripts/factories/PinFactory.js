@@ -54,11 +54,31 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
     };
 
 
-	let deletz = (pinId) => {
+	// let deletz = (pinId) => {
+ //        return $q((resolve, reject) => {
+ //            $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+ //                .then((resultz) => {
+ //                    resolve(resultz);
+ //                })
+ //                .catch((error) => {
+ //                    reject(error);
+ //                    console.log("error in deletz",error);
+ //                });
+ //        });
+ //    };
+
+let deletPinFromBoard = (pin) => {
         return $q((resolve, reject) => {
-            $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+            $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`,JSON.stringify({
+                    uid: pin.uid,
+                    boardId: "",
+                    url: pin.url,
+                    title: pin.title,
+                    description:pin.description
+                }))
                 .then((resultz) => {
                     resolve(resultz);
+                    console.log("resultz in deletPinFromBoard :",resultz);
                 })
                 .catch((error) => {
                     reject(error);
@@ -66,6 +86,9 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
                 });
         });
     };
+
+
+
 
 
     let postNewPin = (newPin) => {
@@ -81,8 +104,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
-
-
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin};
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletPinFromBoard:deletPinFromBoard ,postNewPin:postNewPin};
 
 });
