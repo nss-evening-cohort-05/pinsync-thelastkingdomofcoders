@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
 		<div class="aligner">
-		  <input type="text" class="input-lg col-lg-4" placeholder="Search" ng-model="searchText">
+		  <input type="text" class="input-lg col-lg-4" placeholder="Search Boards" ng-model="searchText">
 		</div>
 
         <div class="aligner">
@@ -31,13 +31,17 @@
 			</div>
 		</div>
 
-		<div ng-repeat="board in boards" class="col-sm-3"> 
+		<div ng-repeat="board in boards | filter: searchText"" class="col-sm-3"> 
 		    <div class="panel panel-default">
 				<div class="panel-heading">
-				    <h3 class="panel-title"><a ng-href="#!/viewBoard/{{board.id}}">{{board.title}}</a></h3>
+				    <p class="panel-title"><a ng-href="#!/viewBoard/{{board.id}}">{{board.title}}</a></p>
+				    <div class="pull-right">
+					    <button class="btn btn-primary fa fa-pencil" ng-click="deleteBoard()"></button>
+					    <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button>
+				    </div>
 				</div>
 		        <div class="panel-body">
-		            <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button>
+		            <!-- <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button> -->
 		        </div>
 		    </div>
 		</div>
