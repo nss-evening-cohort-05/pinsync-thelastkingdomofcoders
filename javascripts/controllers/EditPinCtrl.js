@@ -9,7 +9,9 @@ app.controller("EdiPintCtrl", function($location, $routeParams, $scope, PinFacto
   });
 
   $scope.postNewPin = () => {
-  	PinFactory.editItem($scope.pin).then(() => {
+// Need to pass in the boardId    
+  	PinFactory.editPin($scope.pin).then(() => {
+
 // Need to decide if we return to board or list view
   		// $location.url("/list");
   	}).catch((error) => {

@@ -33,6 +33,27 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
+    let editPin = (pin) => {
+// I'm thinking that we might need to pass the boardId into edit pin function ??        
+        console.log("pin in PinFactory", pin);
+        return $q((resolve, reject) => {
+            $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
+                JSON.stringify({
+                    uid: pin.uid,
+                    boardId: pin.boardId,
+                    url: pin.url,
+                    title: pin.title,
+                    description: pin.description
+                })  
+            ).then((resultz) => {
+                resolve(resultz);
+            }).catch((error) => {
+                console.log("editPin error", error);
+            });
+        });
+    };
+
+
 	let deletz = (pinId) => {
         return $q((resolve, reject) => {
             $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
