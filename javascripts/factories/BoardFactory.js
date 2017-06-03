@@ -17,6 +17,8 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   			reject("postNewBoard error", error);
   		});
 	});
+
+    
   };
 
 
