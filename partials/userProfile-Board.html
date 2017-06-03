@@ -34,7 +34,7 @@
 		<div ng-repeat="board in boards" class="col-sm-3"> 
 		    <div class="panel panel-default">
 				<div class="panel-heading">
-				    <h3 class="panel-title"><a ng-href="#!/viewBoard">{{board.title}}</a></h3>
+				    <h3 class="panel-title"><a ng-href="#!/viewBoard/{{board.id}}">{{board.title}}</a></h3>
 				</div>
 		        <div class="panel-body">
 		            <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button>
