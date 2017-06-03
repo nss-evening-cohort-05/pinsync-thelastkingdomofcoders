@@ -19,7 +19,7 @@ let getAllPins = () => {
 		})
 		.catch((error)=>{
 			console.log("error in deleteSinglePin",error);
-		})
+		});
 	};
 
 
