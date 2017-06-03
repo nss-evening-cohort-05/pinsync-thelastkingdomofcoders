@@ -54,19 +54,14 @@ app.config(function($routeProvider) {
             controller: 'NewPinCtrl',
             resolve: {isAuth}
         })
-        .when('/userProfile', {
-            templateUrl: 'partials/userProfile.html',
-            controller: 'UserProfileCtrl',
-            resolve: {isAuth}
-        })
         .when('/newBoard', {
             templateUrl: 'partials/newBoard.html',
             controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
-        .when('/viewBoard', {
-            templateUrl: 'partials/viewBoard.html',
-            controller: '',
+        .when('/userProfile-Board', {
+            templateUrl: 'partials/userProfile-Board.html',
+            controller: 'UserProfileCtrl',
             resolve: {isAuth}
         })
         .when('/logout', {
