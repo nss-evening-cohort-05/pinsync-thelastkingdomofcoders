@@ -12,7 +12,7 @@ app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope
 	};
 
 
-        $scope.deleteBoard = (boardId) => {
+    $scope.deleteBoard = (boardId) => {
        BoardFactory.deletz(boardId).then(() => {
             addNewBoard();
         }).catch((error) => {

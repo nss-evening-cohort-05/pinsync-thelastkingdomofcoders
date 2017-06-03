@@ -32,6 +32,7 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   		});
 	});
 
+
     
   };
 
