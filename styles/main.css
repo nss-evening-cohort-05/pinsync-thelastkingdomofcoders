@@ -1,6 +1,7 @@
 .profile-pic {
   display: inline-block;
-  background-color: blue;
+  background-size: cover;
+  margin-right: 10px;
   border-radius: 50%;
   width: 50px;
   height: 50px; }
@@ -11,8 +12,19 @@
 
 .aligner {
   display: flex;
+<<<<<<< HEAD
+  justify-content: center;
+  margin-bottom: 20px; }
+
+.panel-body {
+  text-align: center; }
+
+.create-board-title {
+  text-align: center; }
+=======
   justify-content: center; }
 
 img {
   width: 150px;
   height: 150px; }
+>>>>>>> master
