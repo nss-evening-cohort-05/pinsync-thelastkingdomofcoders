@@ -1,11 +1,12 @@
-
-<div>
-  <input type="text" class="input-lg col-lg-4 col-lg-offset-4" placeholder="Search" ng-model="searchText">
-</div><br>
 <div>
 	<h1 class="text-center">Find Your Inspiration</h1>
 </div>
-<div ng-repeat="item in pins">
+<div>
+  <input type="text" class="input-lg col-lg-4 col-lg-offset-4" placeholder="Search" ng-model="searchText">
+</div>
+ <div class="clearfix"></div>
+
+<div ng-repeat="item in pins | filter: searchText">
 	<div class="panel panel-success col-md-4">
 		<div class="panel-heading">
 			<h3 class="panel-title" ng-href="#!/home/{{item.boardId}}"><a>{{item.title}}</a></h3>
@@ -13,7 +14,7 @@
     <div class="panel-body">
 	    <img ng-src="{{item.url}}">  <!-- style="width:300px;height:300px;" -->
 	    <p>{{item.title}}</p>
-	    <p>{{item.title}}  <button class="btn label-success fa fa-trash-o navbar-right" ng-click="deleteSinglePin(item.id)"></button></p>
+	    <p>{{item.title}}  <button class="btn label-danger fa fa-trash-o navbar-right" ng-click="deleteSinglePin(item.id)"></button></p>
 	  </div>
 	</div>
 </div>

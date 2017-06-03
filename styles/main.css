@@ -12,6 +12,7 @@
 
 .aligner {
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
   margin-bottom: 20px; }
 
@@ -20,3 +21,10 @@
 
 .create-board-title {
   text-align: center; }
+=======
+  justify-content: center; }
+
+img {
+  width: 150px;
+  height: 150px; }
+>>>>>>> master
