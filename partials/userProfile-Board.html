@@ -18,6 +18,7 @@
 		  </div>
 		</div>
 
+	<div class="row">
 	    <div class="col-sm-3">
 	    	<h3 class="create-board-title">Create New Board</h3>
 			<div class="panel panel-default">
@@ -29,22 +30,21 @@
 			  </div>
 			</div>
 		</div>
+
+		<div ng-repeat="board in boards" class="col-sm-3"> 
+		    <div class="panel panel-default">
+				<div class="panel-heading">
+				    <h3 class="panel-title"><a ng-href="#!/viewBoard">{{board.title}}</a></h3>
+				</div>
+		        <div class="panel-body">
+		            <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button>
+		        </div>
+		    </div>
+		</div>
+
+	</div>
 			
     </div>
 </div>
 
-<div ng-repeat="board in boards"> 
-	    <div class="panel panel-default">
-	        <div class="panel-body">
-	            <!-- <div class="col-sm-3">
-	            	<input type="checkbox" name="" ng-model="board.title"/>
-	            </div> -->
-	            <p>{{board.title}}</p>
-	            <h3>boards should be here</h3>
-	            <button class="btn btn-danger fa fa-trash-o"></button></div>
-	        </div>
-	    </div>
-	</div>
-
-<h2>Im on the user-profile-board.html</h2>
 
