@@ -1,4 +1,4 @@
-app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, UserFactory) {
+app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, UserFactory, BoardFactory, PinFactory) {
 
 
 });

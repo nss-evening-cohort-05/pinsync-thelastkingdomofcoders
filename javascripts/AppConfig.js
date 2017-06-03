@@ -54,8 +54,13 @@ app.config(function($routeProvider) {
             controller: 'NewPinCtrl',
             resolve: {isAuth}
         })
-        .when('/userProfile', {
-            templateUrl: 'partials/userProfile.html',
+        .when('/userProfile-Board', {
+            templateUrl: 'partials/userProfile-Board.html',
+            controller: 'UserProfileCtrl',
+            resolve: {isAuth}
+        })
+        .when('/userProfile-Pin', {
+            templateUrl: 'partials/userProfile-Pin.html',
             controller: 'UserProfileCtrl',
             resolve: {isAuth}
         })
