@@ -12,8 +12,8 @@ let getAllPins = () => {
 
 	getAllPins();
 
-	$scope.deleteSinglePin = (pin)=>{
-		PinFactory.deletPinFromBoard(pin)
+	$scope.deleteSinglePin = (pinId)=>{
+		PinFactory.deletz(pinId)
 		.then(()=>{
 			getAllPins();
 			console.log("deleteSinglePin");
