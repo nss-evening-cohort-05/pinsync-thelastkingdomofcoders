@@ -7,12 +7,12 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
       $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json`)
     .then((fbItems)=>{
       var boardsCollection = fbItems.data;
-        if (boardsCollection != null) {
+        if (boardsCollection !== null) {
           Object.keys(boardsCollection).forEach((key) =>{
             boardsCollection[key].id=key;
             boardz.push(boardsCollection[key]);
           });
-        };
+        }
       resolve(boardz);
     }).catch((error)=>{
       console.log("error in viewBoards", error);

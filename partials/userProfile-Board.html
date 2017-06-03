@@ -9,6 +9,16 @@
 			<p class="username">{{user.username}}</p>
         </div>
 
+		<div class="btn-group btn-group-justified" role="group">
+		  <div class="btn-group" role="group">
+		    <a ng-href="#!/userProfile-Board"><button type="button" class="btn btn-default active">Boards</button></a>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <a ng-href="#!/userProfile-Pin"><button type="button" class="btn btn-default">Pins</button></a>
+		  </div>
+		</div>
+
+	<div class="row">
 	    <div class="col-sm-3">
 	    	<h3 class="create-board-title">Create New Board</h3>
 			<div class="panel panel-default">
@@ -20,50 +30,21 @@
 			  </div>
 			</div>
 		</div>
+
+		<div ng-repeat="board in boards" class="col-sm-3"> 
+		    <div class="panel panel-default">
+				<div class="panel-heading">
+				    <h3 class="panel-title"><a ng-href="#!/viewBoard">{{board.title}}</a></h3>
+				</div>
+		        <div class="panel-body">
+		            <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard()"></button>
+		        </div>
+		    </div>
+		</div>
+
+	</div>
 			
     </div>
 </div>
 
 
-<div ng-repeat="board in boards"> 
-	    <div class="panel panel-default">
-	        <div class="panel-body">
-	            <!-- <div class="col-sm-3">
-	            	<input type="checkbox" name="" ng-model="board.title"/>
-	            </div> -->
-	            <p>{{board.title}}</p>
-	            <h3>boards should be here</h3>
-	            <button class="btn btn-danger fa fa-trash-o"></button></div>
-	        </div>
-	    </div>
-	</div>
-
-<h2>Im on the user-profile-board.html</h2>
-<!-- <input type="text" name="" placeholder="Search for .... " ng-model="searchText">
-	<h3>Todo List</h3>
-	<div ng-repeat="item in items | orderBy: 'dueDate'| filter:{isCompleted:false}  | filter: searchText"> 
-	    <div class="panel panel-default">
-	        <div class="panel-body">
-	            <div class="col-xs-1">
-	            	<input type="checkbox" name="" ng-model="item.isCompleted" ng-checked="item.isCompleted" ng-change="inputChange(item)"/>
-	            </div>
-	            <div class="col-xs-7"><a ng-href="#!/item/view/{{item.id}}">{{item.task}}</a></div>
-	            <div class="col-xs-2">{{item.dueDate | date:'shortDate'}}</div>
-	            <div class="col-xs-1">{{item.assignedTo}}</div>            
-	            <div class="col-xs-1">
-	            <button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
-	        </div>
-	    </div>
-	</div>
-
-	<h3>Completed</h3>
-	<div ng-repeat="item in items | filter:{isCompleted:true}">
-	    <div class="panel panel-default">
-	        <div class="panel-body">
-	            <div class="col-xs-1"><input type="checkbox" name="" ng-model="item.isCompleted" ng-checked="item.isCompleted" ng-change="inputChange(item)"/></div>
-	            <div class="col-xs-7"><a ng-href="#!/item/view/{{item.id}}">{{item.task}}</a></div>
-	            <div class="col-xs-1  col-xs-offset-2">{{item.assignedTo}}</div>            
-	            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
-	        </div>
-	    </div>
-	</div> -->

@@ -1,5 +1,10 @@
 @import "colors";
 
+img {
+	width: 300px;
+	height: 100%;
+	border-radius:1px $cornsilk solid; 
+}
 
 .profile-pic {
 	display: inline-block;
@@ -27,4 +32,8 @@
 
 .create-board-title {
 	text-align: center;
+}
+
+.btn-group-justified {
+	margin-bottom: 20px;
 }
