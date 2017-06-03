@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 img {
   width: 300px;
   height: 100%;
   border-radius: 1px #fff8dc solid; }
-=======
+
 .profile-pic {
   display: inline-block;
   background-color: blue;
@@ -18,4 +17,3 @@ img {
 .aligner {
   display: flex;
   justify-content: center; }
->>>>>>> master

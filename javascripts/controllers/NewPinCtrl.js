@@ -12,4 +12,5 @@ app.controller("NewPinCtrl", function($rootScope, $http, $location, $q, $scope, 
     });
   };
 
+
 });
