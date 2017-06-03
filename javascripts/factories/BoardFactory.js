@@ -4,7 +4,7 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   let displayUserBoards = (userId) => {
     let boardz = [];
     return $q((resolve, reject)=>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json`)
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((fbItems)=>{
       var boardsCollection = fbItems.data;
         if (boardsCollection !== null) {
