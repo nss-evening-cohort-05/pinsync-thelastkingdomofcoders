@@ -18,6 +18,6 @@ app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope
         }).catch((error) => {
             console.log("deleteItem error", error);
         });
-    };
+    };	
 });
 
