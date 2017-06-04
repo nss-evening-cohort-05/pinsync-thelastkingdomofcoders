@@ -86,7 +86,7 @@ app.config(function($routeProvider) {
         })
         .when("/chooseBoard", {
             templateUrl: "partials/chooseBoard.html",
-            controller: "UserProfileCtrl",
+            controller: "EditPinCtrl",
             resolve: {isAuth}
         })        
         .when('/newBoard', {

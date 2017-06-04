@@ -24,17 +24,17 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         return $q((resolve, reject) => {
             $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${id}.json`)
                 .then((resultz) => {
+                    console.log("getSinglePin resultz", resultz);
                     resultz.data.id = id;
                     resolve(resultz);
                 }).catch((error) => {
                     reject(error);
-                    console.log("getSingleItem error", error);
+                    console.log("getSinglePin error", error);
             });
         });
     };
 
     let editPin = (pin) => {
-// I'm thinking that we might need to pass the boardId into edit pin function ??        
         console.log("pin in PinFactory", pin);
         return $q((resolve, reject) => {
             $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 

@@ -1,5 +1,4 @@
 app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
-	console.log("inside the BoardFactory app.factory");
   
   let displayUserBoards = (userId) => {
     let boardz = [];
@@ -30,13 +29,25 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
   		}).catch((error)=>{
   			reject("postNewBoard error", error);
   		});
-	});
-
-
-    
+	  });
   };
 
-return {postNewBoard:postNewBoard, displayUserBoards: displayUserBoards};
+  let getSingleBoard = (id) => {
+      return $q((resolve, reject) => {
+          $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/${id}.json`)
+              .then((resultz) => {
+                  resultz.data.id = id;
+                  resolve(resultz);
+              }).catch((error) => {
+                  reject(error);
+                  console.log("getSingleItem error", error);
+          });
+      });
+  };
+
+    
+
+return {postNewBoard:postNewBoard, displayUserBoards: displayUserBoards, getSingleBoard:getSingleBoard};
 
 
 });
