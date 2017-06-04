@@ -4,7 +4,7 @@ app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope
 		BoardFactory.postNewBoard($scope.newBoard)
 		.then((response)=>{
 			$scope.newBoard = {};
-			$location.url("/newBoard");
+			$location.url("/userProfile-Board");
 			console.log("new board response", response);
 		}).catch((error)=>{
 			console.log("error in new board response", error);

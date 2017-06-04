@@ -2,6 +2,10 @@ img {
   width: 300px;
   height: 300px; }
 
+.logo {
+  width: 30px;
+  height: 30px; }
+
 .profile-pic {
   display: inline-block;
   background-size: cover;
