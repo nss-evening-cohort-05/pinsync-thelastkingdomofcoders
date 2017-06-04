@@ -19,6 +19,47 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
+  let displayUserPins = (boardId) => {
+    let pinz = [];
+    return $q((resolve, reject)=>{
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+    .then((fbPins)=>{
+      var pinsCollection = fbPins.data;
+        if (pinsCollection !== null) {
+          Object.keys(pinsCollection).forEach((key) =>{
+            pinsCollection[key].id=key;
+            pinz.push(pinsCollection[key]);
+          });
+        }
+      resolve(pinz);
+    console.log("boardId", boardId);
+      console.log("pinz", pinz);
+    }).catch((error) => {
+      console.log("error in displayUserPins", error);
+    });
+
+  });
+};
+
+    // let getUserPinList = (boardId) => {
+    //     let pinz = [];
+    //     return $q((resolve, reject) => {
+    //         $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+    //             .then((fbPins) => {
+    //                 let pinCollection = fbPins.data;
+    //       if(pinCollection !== null ){
+    //           Object.keys(pinCollection).forEach((key) => {
+    //             pinCollection[key].id=key;
+    //             pinz.push(pinCollection[key]);
+    //           });              
+    //       }
+    //       resolve(pinz);
+    //         }).catch((error) => {
+    //             reject(error);
+    //         });
+    //     });
+    // };
+
 
     let getSinglePin = (id) => {
         return $q((resolve, reject) => {
@@ -81,6 +122,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin};
+    return {getPinList:getPinList, getSinglePin:getSinglePin, deletz:deletz, postNewPin:postNewPin, displayUserPins:displayUserPins};
 
 });
