@@ -2,9 +2,11 @@
 <button class="btn btn-warning"><a ng-href="#!/newBoard/{{selectedBoard.id}}">Edit</a></button>
 <div class="panel panel-default col-md-6 col-md-offset-3">
     <div class="panel-body " ng-href="#!/home/{{selectedPin.id}}">
-        <a>
-            <img ng-src="{{selectedPin.url}}">
-            <p>{{selectedPin.title}}</p>
-        </a>
+        <div class="container">
+        <img ng-src="{{selectedPin.url}}">
+        <p>{{selectedPin.title}}</p>
+    	<button class="btn btn-primary fa fa-pencil" ng-click=""></button>
+		<button class="btn btn-danger fa fa-trash-o" ng-click="deleteSinglePin(selectedPin.id)"></button>
+        </div>
     </div>
 </div>
