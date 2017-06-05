@@ -1,4 +1,4 @@
-app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, UserFactory, BoardFactory) {
+app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, UserFactory, BoardFactory, PinFactory) {
     $scope.boards = [];
     console.log("hi ViewBoardsProfileCtrl.js");
 

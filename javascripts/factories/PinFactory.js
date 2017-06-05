@@ -19,6 +19,29 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
+    /////// Krissy's try at Pins per board function //// 
+
+    let getBoardOnlyPins = (boardId)=>{
+        let pinsBoards = [];
+        return $q((resolve, reject)=>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+        .then((fbPins)=>{
+            console.log(fbPins);
+            var boardPins = fbPins.data;
+            if (boardPins !== null) {
+                Object.keys(boardPins).forEach((key)=> {
+                    boardPins[key].id = key;
+                    pinsBoards.push(boardPins[key]);
+                resolve(pinsBoards);
+                })
+                }
+                }).catch((error) => {
+                    console.log("getBoardOnlyPins error", error);
+        });
+    });
+
+};
+
 
     let getSinglePin = (id) => {
         return $q((resolve, reject) => {
@@ -81,6 +104,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin};
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin, getBoardOnlyPins:getBoardOnlyPins};
 
 });

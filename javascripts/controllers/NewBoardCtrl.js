@@ -1,6 +1,5 @@
 app.controller("NewBoardCtrl", function($rootScope, $http, $location, $q, $scope, FIREBASE_CONFIG, BoardFactory){	
 	$scope.addNewBoard = () =>{
-		console.log("addNewBoardWasClicked");
 		$scope.newBoard.uid = $rootScope.user.uid;
 		BoardFactory.postNewBoard($scope.newBoard)
 		.then((response)=>{
