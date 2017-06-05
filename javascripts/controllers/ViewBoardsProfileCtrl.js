@@ -1,6 +1,7 @@
-app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactory, $rootScope){
-
+app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFactory, PinFactory) {
+   	$scope.selectedBoard = {};
     $scope.selectedPin={};
+
     $scope.boards = [];
     PinFactory.getBoardOnlyPins($routeParams.boardId)
     .then((results) => {
@@ -11,6 +12,20 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactor
     .catch((error)=>{
         console.log("error in ViewBoardsProfileCtrl",error);
     });
+	
+	// let getPinsForBoard = () => {
+	// 	console.log("inside getPinsForBoard");
+ //        PinFactory.displayPinsInBoard($scope.pin.boardId)
+ //            .then((pinz) => {
+ //                console.log("results boards", pinz);
+ //                // $scope.pins = pinz;
+ //            }).catch((error) => {
+ //                console.log("error in getPinsForBoard", error);
+ //            });
+ //    };
+
+ //    getPinsForBoard();
+
 
 
 ///// ELLIS  TEST FOR GET BOARDS ///////////
@@ -31,7 +46,21 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactor
 //         });
 //     };
 
+     
+    BoardFactory.getSingleBoard($routeParams.boardId)
+    .then((results) =>{
+        $scope.selectedBoard= results.data;
+    }).catch((error) => {
+        console.log("getSingleItem error", error);
+    });
 
+	$scope.addNewBoard = () => {
+		BoardFactory.editBoard($scope.newBoard).then(() => {
+			$location.url('/viewBoard');
+		}).catch((error) =>{
+			console.log("editBoard", error);
+		});
+	};
 
 // app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFactory, PinFactory) {
 //     $scope.boards = [];
@@ -57,7 +86,6 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactor
 
 //     getBoards();
 	
-
 
 
 });
