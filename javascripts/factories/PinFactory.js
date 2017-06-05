@@ -21,6 +21,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
 
 
     let getSinglePin = (id) => {
+        console.log("getSinglePin id", id);
         return $q((resolve, reject) => {
             $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${id}.json`)
                 .then((resultz) => {
@@ -81,6 +82,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     };
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin};
+    return {getPinList:getPinList , getSinglePin:getSinglePin, editPin:editPin, deletz:deletz, postNewPin:postNewPin};
 
 });

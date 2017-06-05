@@ -1,7 +1,7 @@
 app.controller("EditPinCtrl", function($location, $routeParams, $scope, PinFactory, BoardFactory) {
   $scope.address = {};
 
-  PinFactory.getSinglePin($routeParams.id).then((results) => {
+  PinFactory.getSinglePin($routeParams.url).then((results) => {
     $scope.pin = results.data;
     console.log("getSinglePin $scope.newPin", $scope.pin);
   }).catch((error) => {
@@ -9,6 +9,7 @@ app.controller("EditPinCtrl", function($location, $routeParams, $scope, PinFacto
   });
 
   BoardFactory.getSingleBoard($routeParams.id).then((results) => {
+    console.log("results", results);
     $scope.board = results.data;
     console.log("getSingleBoard $scope.newBoard", $scope.board);
   }).catch((error) => {
