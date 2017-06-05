@@ -1,21 +1,16 @@
 app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactory, $rootScope){
-	$scope.pin = [];
-	console.log("hi ViewBoardsProfileCtrl.js");
-	
-	let getPinsForBoard = () => {
-		console.log("inside getPinsForBoard");
-        PinFactory.displayPinsInBoard($scope.pin.boardId)
-            .then((pinz) => {
-                console.log("results boards", pinz);
-                // $scope.pins = pinz;
-            }).catch((error) => {
-                console.log("error in getPinsForBoard", error);
-            });
-    };
 
-    getPinsForBoard();
-
-
+    $scope.selectedPin={};
+    $scope.boards = [];
+    PinFactory.getBoardOnlyPins($routeParams.boardId)
+    .then((results) => {
+        return PinFactory.getSinglePin(results[0].id);
+        }).then((singlePin)=>{
+            $scope.selectedPin = singlePin.data;
+    })
+    .catch((error)=>{
+        console.log("error in ViewBoardsProfileCtrl",error);
+    });
 	
 });
 

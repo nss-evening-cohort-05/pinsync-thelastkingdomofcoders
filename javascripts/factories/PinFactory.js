@@ -34,8 +34,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
           });
         }
       resolve(pinz);
-    console.log("boardId", boardId);
-      console.log("pinz", pinz);
     }).catch((error) => {
       console.log("error in displayUserPins", error);
     });
@@ -43,24 +41,27 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
   });
 };
 
-    // let getUserPinList = (boardId) => {
-    //     let pinz = [];
-    //     return $q((resolve, reject) => {
-    //         $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-    //             .then((fbPins) => {
-    //                 let pinCollection = fbPins.data;
-    //       if(pinCollection !== null ){
-    //           Object.keys(pinCollection).forEach((key) => {
-    //             pinCollection[key].id=key;
-    //             pinz.push(pinCollection[key]);
-    //           });              
-    //       }
-    //       resolve(pinz);
-    //         }).catch((error) => {
-    //             reject(error);
-    //         });
-    //     });
-    // };
+
+    let getBoardOnlyPins = (boardId)=>{
+        let pinsBoards = [];
+        return $q((resolve, reject)=>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+            .then((fbPins)=>{
+                var boardPins = fbPins.data;
+                if (boardPins !== null) {
+                Object.keys(boardPins).forEach((key)=> {
+                    boardPins[key].id = key;
+                    pinsBoards.push(boardPins[key]);
+                    resolve(pinsBoards);
+                    });
+                }
+                }).catch((error) => {
+                    console.log("getBoardOnlyPins error", error);
+        });
+    });
+
+};
+
 
 
     let getSinglePin = (id) => {
@@ -126,34 +127,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
-//SANY'S FUNCTION
-    let displayPinsInBoard = (boardId) => {
-        let pinz = [];
-        return $q((resolve, reject) => {
-            $http.get(`${FIREBASE_CONFIG.databaseURL}pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-                .then((fbItems) => {
-                    let pinCollection = fbItems.data;
-                    if (pinCollection !== null) {
-                        Object.keys(pinCollection).forEach((key) => {
-                            pinCollection[key].id = key;
-                            pinz.push(pinCollection[key]);
-                        });
-                    }
-                    resolve(pinz);
-                    console.log("pinz inside displayPinsInBoard",pinz);
-                    $rootScope.boardId = boardId ;
-                })
-                .catch((error) => {
-                    reject(" error in displayPinsInBoard",error);
-                });
-        });
-    };
-
-
-
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin ,displayPinsInBoard:displayPinsInBoard};
-
-//     return {getPinList:getPinList, getSinglePin:getSinglePin, deletz:deletz, postNewPin:postNewPin, displayUserPins:displayUserPins};
-
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin , displayUserPins:displayUserPins , getBoardOnlyPins:getBoardOnlyPins};
 
 });
