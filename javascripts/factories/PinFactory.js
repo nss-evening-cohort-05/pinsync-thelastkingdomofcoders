@@ -19,29 +19,30 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
         });
     };
 
+
 //   ISABEL'S FUNCTION
   
-  let displayUserPins = (boardId) => {
-    let pinz = [];
-    return $q((resolve, reject)=>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-    .then((fbPins)=>{
-      var pinsCollection = fbPins.data;
-        if (pinsCollection !== null) {
-          Object.keys(pinsCollection).forEach((key) =>{
-            pinsCollection[key].id=key;
-            pinz.push(pinsCollection[key]);
-          });
-        }
-      resolve(pinz);
-    console.log("boardId", boardId);
-      console.log("pinz", pinz);
-    }).catch((error) => {
-      console.log("error in displayUserPins", error);
-    });
+//   let displayUserPins = (boardId) => {
+//     let pinz = [];
+//     return $q((resolve, reject)=>{
+//       $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+//     .then((fbPins)=>{
+//       var pinsCollection = fbPins.data;
+//         if (pinsCollection !== null) {
+//           Object.keys(pinsCollection).forEach((key) =>{
+//             pinsCollection[key].id=key;
+//             pinz.push(pinsCollection[key]);
+//           });
+//         }
+//       resolve(pinz);
+//     console.log("boardId", boardId);
+//       console.log("pinz", pinz);
+//     }).catch((error) => {
+//       console.log("error in displayUserPins", error);
+//     });
 
-  });
-};
+//   });
+// };
 
     // let getUserPinList = (boardId) => {
     //     let pinz = [];

@@ -1,6 +1,5 @@
 app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
-    console.log("inside the BoardFactory app.factory");
-
+    
     let displayUserBoards = (userId) => {
         let boardz = [];
         return $q((resolve, reject) => {
@@ -33,6 +32,22 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
         });
 
     };
+
+    // Ellis's Function for user boards
+
+    let displayUsersBoard = (id) => {
+            return $q((resolve, reject) => {
+                $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${id}.json`)
+                    .then((resultz) => {
+                        resultz.data.id = id;
+                        resolve(resultz);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            });
+        };
+////////////// END OF ELLIS FUNCTION ////////////////////////////
   
 
     let deletzBoard = (id) => {
@@ -49,7 +64,7 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
 
 
 
-    return {postNewBoard: postNewBoard, displayUserBoards: displayUserBoards, deletzBoard: deletzBoard};
+    return {postNewBoard: postNewBoard, displayUserBoards: displayUserBoards, deletzBoard: deletzBoard, displayUsersBoard:displayUsersBoard};
 
 
 });
