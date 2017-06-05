@@ -1,22 +1,36 @@
-app.controller("EdiPintCtrl", function($location, $routeParams, $scope, PinFactory) {
+app.controller("EditPinCtrl", function($location, $routeParams, $scope, PinFactory, BoardFactory) {
   $scope.address = {};
 
-  PinFactory.getSinglePin($routeParams.id).then((results) => {
+  PinFactory.getSinglePin($routeParams.url).then((results) => {
     $scope.pin = results.data;
     console.log("getSinglePin $scope.newPin", $scope.pin);
   }).catch((error) => {
   	console.log("getSinglePin error", error);
   });
 
-  $scope.postNewPin = () => {
-// Need to pass in the boardId    
-  	PinFactory.editPin($scope.pin).then(() => {
+  BoardFactory.getSingleBoard($routeParams.id).then((results) => {
+    console.log("results", results);
+    $scope.board = results.data;
+    console.log("getSingleBoard $scope.newBoard", $scope.board);
+  }).catch((error) => {
+    console.log("getSingleBoard error", error);
+  });
 
-// Need to decide if we return to board or list view
-  		// $location.url("/list");
+  $scope.postNewPin = () => {
+  	PinFactory.editPin($scope.pin).then(() => {
+  		$location.url("/home");
   	}).catch((error) => {
   		console.log("editItem error", error);
   	});
   };
+
+  $scope.pinToBoard = () => {
+    PinFactory.editPin($scope.board).then(() => {
+      $location.url("/home");
+    }).catch((error) => {
+      console.log("editItem error", error);
+    });
+  };
+
 
 });
