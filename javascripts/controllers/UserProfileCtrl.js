@@ -13,6 +13,18 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
     };
     getAllBoards();
 
+
+    $scope.deleteBoard = (boardId) => {
+
+        BoardFactory.deletzBoard(boardId)
+            .then(() => {
+                getAllBoards();
+            })
+            .catch((error) => {
+                console.log("error on deleteBoard", error);
+            });
+    };
+
     // let getUserPins = () => {
     //     PinFactory.displayUserPins($rootScope.user.uid)
     //         .then((pinz) => {
@@ -25,9 +37,9 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
     // getUserPins();
 
     PinFactory.displayUserPins($routeParams.id).then((results) => {
-      $scope.pins = results;
+        $scope.pins = results;
     }).catch((error) => {
-      console.log("displayUserPins error", error);
+        console.log("displayUserPins error", error);
     });
 
 });
