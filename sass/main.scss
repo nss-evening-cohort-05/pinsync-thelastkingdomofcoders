@@ -5,6 +5,11 @@ img {
 	height: 300px;
 }
 
+.logo {
+	width: 30px;
+	height: 30px;
+}
+
 .profile-pic {
 	display: inline-block;
 	background-size: cover;
@@ -25,6 +30,10 @@ img {
 	margin-bottom: 20px;
 }
 
+.panel-title {
+	display: inline-block;
+}
+
 .panel-body {
 	text-align: center;
 }
@@ -36,7 +45,6 @@ img {
 .btn-group-justified {
 	margin-bottom: 20px;
 }
-
 
 .icon {
 	color: blue;
