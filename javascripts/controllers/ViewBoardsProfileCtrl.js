@@ -16,7 +16,7 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFact
  //    getPinsForBoard();
 
 
-///// ELLIS GIT git TEST FOR GET BOARDS ///////////
+///// ELLIS  TEST FOR GET BOARDS ///////////
 
     let getBoards = () => {
 

@@ -33,7 +33,7 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
 
     };
 
-    // Ellis's Function for user boards
+    ///////// Ellis's Function for user boards ////////
 
     let displayUsersBoard = (id) => {
             return $q((resolve, reject) => {
