@@ -36,10 +36,10 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
     // };
     // getUserPins();
 
-    PinFactory.displayUserPins($routeParams.id).then((results) => {
-        $scope.pins = results;
-    }).catch((error) => {
-        console.log("displayUserPins error", error);
-    });
+    // PinFactory.displayUserPins($routeParams.id).then((results) => {
+    //     $scope.pins = results;
+    // }).catch((error) => {
+    //     console.log("displayUserPins error", error);
+    // });
 
 });

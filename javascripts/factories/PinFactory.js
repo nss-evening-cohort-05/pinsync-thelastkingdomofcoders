@@ -34,7 +34,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
                     boardPins[key].id = key;
                     pinsBoards.push(boardPins[key]);
                 resolve(pinsBoards);
-                })
+                });
                 }
                 }).catch((error) => {
                     console.log("getBoardOnlyPins error", error);
@@ -154,7 +154,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
 
 //     return {getPinList:getPinList , getSinglePin:getSinglePin, editPin:editPin, deletz:deletz, postNewPin:postNewPin};
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin, getBoardOnlyPins:getBoardOnlyPins};
+    return {getPinList:getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin, getBoardOnlyPins:getBoardOnlyPins, editPin:editPin};
 
 
 //SANY'S FUNCTION
