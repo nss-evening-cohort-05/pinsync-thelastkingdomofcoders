@@ -89,17 +89,12 @@ app.config(function($routeProvider) {
             controller: "EditPinCtrl",
             resolve: {isAuth}
         })        
-        .when('/newBoard', {
+        .when('/newBoard/:boardId', {
             templateUrl: 'partials/newBoard.html',
             controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
-        .when('/viewBoard/edit/:boardId', {
-            templateUrl: 'partials/newBoard.html',
-            controller: 'ViewBoardsProfileCtrl',
-            resolve: {isAuth}
-        })
-        .when('/viewBoard/view/:boardId', {
+        .when('/viewBoard/:boardId', {
             templateUrl: 'partials/viewBoard.html',
             controller: 'ViewBoardsProfileCtrl',
             resolve: {isAuth}

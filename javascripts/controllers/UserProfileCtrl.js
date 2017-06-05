@@ -14,7 +14,6 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
     getAllBoards();
 
 
-
     $scope.deleteBoard = (boardId) => {
 
         BoardFactory.deletzBoard(boardId)
@@ -25,7 +24,6 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
                 console.log("error on deleteBoard", error);
             });
     };
-
 
     // let getUserPins = () => {
     //     PinFactory.displayUserPins($rootScope.user.uid)

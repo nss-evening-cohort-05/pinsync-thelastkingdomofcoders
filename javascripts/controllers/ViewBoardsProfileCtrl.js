@@ -54,6 +54,13 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFact
         console.log("getSingleItem error", error);
     });
 
+	$scope.addNewBoard = () => {
+		BoardFactory.editBoard($scope.newBoard).then(() => {
+			$location.url('/viewBoard');
+		}).catch((error) =>{
+			console.log("editBoard", error);
+		});
+	};
 
 // app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFactory, PinFactory) {
 //     $scope.boards = [];
