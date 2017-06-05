@@ -1,4 +1,3 @@
-
 app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactory, $rootScope){
 
     $scope.selectedPin={};
@@ -34,29 +33,29 @@ app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, PinFactor
 
 
 
-app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFactory, PinFactory) {
-    $scope.boards = [];
-    console.log("hi ViewBoardsProfileCtrl.js");
-    PinFactory.getBoardOnlyPins($routeParams.boardId).then((results) => {
-        console.log("pins boards", results);
-    });
+// app.controller("ViewBoardsProfileCtrl", function($routeParams, $scope, BoardFactory, PinFactory) {
+//     $scope.boards = [];
+//     console.log("hi ViewBoardsProfileCtrl.js");
+//     PinFactory.getBoardOnlyPins($routeParams.boardId).then((results) => {
+//         console.log("pins boards", results);
+//     });
 	
 
 
-    let getPins = (boardId) => {
-        PinFactory.getPinList($routeParams.id)
-        .then((pinz) => {
-            $scope.pins = pinz;
-            console.log("pinz", pinz);
-        })
-        .catch((error) => {
-            console.log("error on getPins", error);
-        });
-    };
+//     let getPins = (boardId) => {
+//         PinFactory.getPinList($routeParams.id)
+//         .then((pinz) => {
+//             $scope.pins = pinz;
+//             console.log("pinz", pinz);
+//         })
+//         .catch((error) => {
+//             console.log("error on getPins", error);
+//         });
+//     };
 
-///////END OF TEST /////////////////
+// ///////END OF TEST /////////////////
 
-    getBoards();
+//     getBoards();
 	
 
 

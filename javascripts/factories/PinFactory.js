@@ -20,25 +20,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
-//   ISABEL'S FUNCTION
-  
-  let displayUserPins = (boardId) => {
-    let pinz = [];
-    return $q((resolve, reject)=>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-    .then((fbPins)=>{
-      var pinsCollection = fbPins.data;
-        if (pinsCollection !== null) {
-          Object.keys(pinsCollection).forEach((key) =>{
-            pinsCollection[key].id=key;
-            pinz.push(pinsCollection[key]);
-          });
-        }
-      resolve(pinz);
-    }).catch((error) => {
-      console.log("error in displayUserPins", error);
-
-
 
 
  /////// Krissy's try at Pins per board function //// 
@@ -129,7 +110,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin ,editPin:editPin, displayUserPins:displayUserPins , getBoardOnlyPins:getBoardOnlyPins};
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin , getBoardOnlyPins:getBoardOnlyPins};
 
 
 
