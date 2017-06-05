@@ -8,13 +8,6 @@ app.controller("EditPinCtrl", function($location, $routeParams, $scope, PinFacto
   	console.log("getSinglePin error", error);
   });
 
-  BoardFactory.getSingleBoard($routeParams.id).then((results) => {
-    console.log("results", results);
-    $scope.board = results.data;
-    console.log("getSingleBoard $scope.newBoard", $scope.board);
-  }).catch((error) => {
-    console.log("getSingleBoard error", error);
-  });
 
   $scope.postNewPin = () => {
   	PinFactory.editPin($scope.pin).then(() => {
@@ -24,13 +17,6 @@ app.controller("EditPinCtrl", function($location, $routeParams, $scope, PinFacto
   	});
   };
 
-  $scope.pinToBoard = () => {
-    PinFactory.editPin($scope.board).then(() => {
-      $location.url("/home");
-    }).catch((error) => {
-      console.log("editItem error", error);
-    });
-  };
 
 
 });

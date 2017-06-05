@@ -20,16 +20,16 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
-    /////// Krissy's try at Pins per board function //// 
 
+
+ /////// Krissy's try at Pins per board function //// 
     let getBoardOnlyPins = (boardId)=>{
         let pinsBoards = [];
         return $q((resolve, reject)=>{
             $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-        .then((fbPins)=>{
-            console.log(fbPins);
-            var boardPins = fbPins.data;
-            if (boardPins !== null) {
+            .then((fbPins)=>{
+                var boardPins = fbPins.data;
+                if (boardPins !== null) {
                 Object.keys(boardPins).forEach((key)=> {
                     boardPins[key].id = key;
                     pinsBoards.push(boardPins[key]);
@@ -42,50 +42,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     });
 
 };
-
-
-//   ISABEL'S FUNCTION
-  
-//   let displayUserPins = (boardId) => {
-//     let pinz = [];
-//     return $q((resolve, reject)=>{
-//       $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-//     .then((fbPins)=>{
-//       var pinsCollection = fbPins.data;
-//         if (pinsCollection !== null) {
-//           Object.keys(pinsCollection).forEach((key) =>{
-//             pinsCollection[key].id=key;
-//             pinz.push(pinsCollection[key]);
-//           });
-//         }
-//       resolve(pinz);
-//     console.log("boardId", boardId);
-//       console.log("pinz", pinz);
-//     }).catch((error) => {
-//       console.log("error in displayUserPins", error);
-//     });
-
-//   });
-// };
-
-    // let getUserPinList = (boardId) => {
-    //     let pinz = [];
-    //     return $q((resolve, reject) => {
-    //         $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-    //             .then((fbPins) => {
-    //                 let pinCollection = fbPins.data;
-    //       if(pinCollection !== null ){
-    //           Object.keys(pinCollection).forEach((key) => {
-    //             pinCollection[key].id=key;
-    //             pinz.push(pinCollection[key]);
-    //           });              
-    //       }
-    //       resolve(pinz);
-    //         }).catch((error) => {
-    //             reject(error);
-    //         });
-    //     });
-    // };
 
 
 
@@ -105,6 +61,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
         });
     };
 
+        
     let editPin = (pin) => {
         console.log("pin in PinFactory", pin);
         return $q((resolve, reject) => {
@@ -154,7 +111,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
 
 //     return {getPinList:getPinList , getSinglePin:getSinglePin, editPin:editPin, deletz:deletz, postNewPin:postNewPin};
 
-    return {getPinList:getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin, getBoardOnlyPins:getBoardOnlyPins, editPin:editPin};
 
 
 //SANY'S FUNCTION
@@ -182,9 +138,8 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
 
 
 
-//     return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin ,displayPinsInBoard:displayPinsInBoard};
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin , getBoardOnlyPins:getBoardOnlyPins, editPin:editPin};
 
-//     return {getPinList:getPinList, getSinglePin:getSinglePin, deletz:deletz, postNewPin:postNewPin, displayUserPins:displayUserPins};
 
 
 });

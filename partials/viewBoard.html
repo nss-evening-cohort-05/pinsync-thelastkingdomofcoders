@@ -1,12 +1,8 @@
-<h> outside</h>
-<div ng-repeat="pin in pins" class="col-sm-4">
-    <div class="panel panel-default">
-        <h> the pins should be displayed here</h>
-        <div class="panel-body" ng-href="#!/home/{{pin.boardId}}">
-			<a>
-	            <img ng-src="{{pin.url}}">
-	            <p>{{pin.title}}</p>
-            </a>
-        </div>
+<div class="panel panel-default col-md-6 col-md-offset-3">
+    <div class="panel-body " ng-href="#!/home/{{selectedPin.id}}">
+        <a>
+            <img ng-src="{{selectedPin.url}}">
+            <p>{{selectedPin.title}}</p>
+        </a>
     </div>
 </div>

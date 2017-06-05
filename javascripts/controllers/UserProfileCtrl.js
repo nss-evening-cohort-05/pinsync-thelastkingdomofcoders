@@ -14,6 +14,7 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
     getAllBoards();
 
 
+
     $scope.deleteBoard = (boardId) => {
 
         BoardFactory.deletzBoard(boardId)
@@ -24,6 +25,23 @@ app.controller("UserProfileCtrl", function($routeParams, $rootScope, $scope, Use
                 console.log("error on deleteBoard", error);
             });
     };
+
+  BoardFactory.getSingleBoard($routeParams.id).then((results) => {
+    console.log("results", results);
+    $scope.board = results.data;
+    console.log("getSingleBoard $scope.newBoard", $scope.board);
+  }).catch((error) => {
+    console.log("getSingleBoard error", error);
+  });
+
+  $scope.pinToBoard = ($routeParams.id) => {
+    PinFactory.editPin().then(() => {
+      $location.url("/viewBoard/:boardId");
+    }).catch((error) => {
+      console.log("editItem error", error);
+    });
+  };
+
 
     // let getUserPins = () => {
     //     PinFactory.displayUserPins($rootScope.user.uid)
