@@ -16,7 +16,6 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
     }).catch((error)=>{
       console.log("error in viewBoards", error);
     });
-
   });
 };
 
@@ -32,6 +31,22 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
 	  });
   };
 
+    ///////// Ellis's Function for user boards ////////
+
+//     let displayUsersBoard = (id) => {
+//             return $q((resolve, reject) => {
+//                 $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${id}.json`)
+//                     .then((resultz) => {
+//                         resultz.data.id = id;
+//                         resolve(resultz);
+//                     })
+//                     .catch((error) => {
+//                         reject(error);
+//                     });
+//             });
+//         };
+////////////// END OF ELLIS FUNCTION ////////////////////////////
+  
   let getSingleBoard = (id) => {
       return $q((resolve, reject) => {
           $http.get(`${FIREBASE_CONFIG.databaseURL}/boards/${id}.json`)
@@ -44,7 +59,7 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
           });
       });
   };
-
+  
     let deletzBoard = (id) => {
             return $q((resolve, reject) => {
                 $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${id}.json`)
@@ -75,4 +90,11 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
 return {postNewBoard:postNewBoard, displayUserBoards: displayUserBoards, getSingleBoard:getSingleBoard, deletzBoard:deletzBoard, editBoard: editBoard};
 
 
+
+//     return {postNewBoard: postNewBoard, displayUserBoards: displayUserBoards, deletzBoard: deletzBoard, displayUsersBoard:displayUsersBoard};
+
+
+// });
+
 });
+
