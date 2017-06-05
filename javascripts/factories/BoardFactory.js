@@ -1,4 +1,4 @@
-app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
+app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG){
 	console.log("inside the BoardFactory app.factory");
   
   let displayUserBoards = (userId) => {
