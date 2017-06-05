@@ -1,7 +1,9 @@
-<h> outside</h>
+<h1>Title: {{selectedBoard.title}}</h1>
+<button class="btn btn-warning"><a ng-href="#!/viewBoard/edit/{{selectedBoard.id}}">Edit</a></button>
+<h2> outside</h2>
 <div ng-repeat="pin in pins" class="col-sm-4">
     <div class="panel panel-default">
-        <h> the pins should be displayed here</h>
+        <h2> the pins should be displayed here</h2>
         <div class="panel-body" ng-href="#!/home/{{pin.boardId}}">
 			<a>
 	            <img ng-src="{{pin.url}}">

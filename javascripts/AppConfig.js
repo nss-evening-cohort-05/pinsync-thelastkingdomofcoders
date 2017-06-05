@@ -94,7 +94,12 @@ app.config(function($routeProvider) {
             controller: 'NewBoardCtrl',
             resolve: {isAuth}
         })
-        .when('/viewBoard/:boardId', {
+        .when('/viewBoard/edit/:boardId', {
+            templateUrl: 'partials/newBoard.html',
+            controller: 'ViewBoardsProfileCtrl',
+            resolve: {isAuth}
+        })
+        .when('/viewBoard/view/:boardId', {
             templateUrl: 'partials/viewBoard.html',
             controller: 'ViewBoardsProfileCtrl',
             resolve: {isAuth}

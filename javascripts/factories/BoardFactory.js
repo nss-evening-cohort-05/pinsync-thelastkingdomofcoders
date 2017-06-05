@@ -56,9 +56,23 @@ app.factory("BoardFactory", function($q, $http, FIREBASE_CONFIG){
                     });
             });
         };
+
+  let editBoard = (board) =>{
+    return $q((resolve, reject) => {
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/boards/${board.id}.json`,
+      JSON.stringify({
+        title: board.title
+      })
+      ).then((resultz) => {
+        resolve(resultz);
+      }).catch((error) =>{
+        reject(error);
+      });
+    });
+  };
     
 
-return {postNewBoard:postNewBoard, displayUserBoards: displayUserBoards, getSingleBoard:getSingleBoard, deletzBoard:deletzBoard};
+return {postNewBoard:postNewBoard, displayUserBoards: displayUserBoards, getSingleBoard:getSingleBoard, deletzBoard:deletzBoard, editBoard: editBoard};
 
 
 });
