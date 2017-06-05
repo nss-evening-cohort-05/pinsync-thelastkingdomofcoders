@@ -19,6 +19,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
         });
     };
 
+
 //   ISABEL'S FUNCTION
   
   let displayUserPins = (boardId) => {
@@ -36,12 +37,11 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
       resolve(pinz);
     }).catch((error) => {
       console.log("error in displayUserPins", error);
-    });
-
-  });
-};
 
 
+
+
+ /////// Krissy's try at Pins per board function //// 
     let getBoardOnlyPins = (boardId)=>{
         let pinsBoards = [];
         return $q((resolve, reject)=>{
@@ -65,21 +65,23 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
 
 
     let getSinglePin = (id) => {
+        console.log("getSinglePin id", id);
         return $q((resolve, reject) => {
             $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${id}.json`)
                 .then((resultz) => {
+                    console.log("getSinglePin resultz", resultz);
                     resultz.data.id = id;
                     resolve(resultz);
                     console.log("resultz in getSinglePin",resultz);
                 }).catch((error) => {
                     reject(error);
-                    console.log("getSingleItem error", error);
+                    console.log("getSinglePin error", error);
             });
         });
     };
 
+        
     let editPin = (pin) => {
-// I'm thinking that we might need to pass the boardId into edit pin function ??        
         console.log("pin in PinFactory", pin);
         return $q((resolve, reject) => {
             $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
@@ -127,6 +129,8 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
-    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin , displayUserPins:displayUserPins , getBoardOnlyPins:getBoardOnlyPins};
+    return {getPinList: getPinList , getSinglePin:getSinglePin ,deletz:deletz ,postNewPin:postNewPin ,editPin:editPin, displayUserPins:displayUserPins , getBoardOnlyPins:getBoardOnlyPins};
+
+
 
 });
