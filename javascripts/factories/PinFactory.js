@@ -20,6 +20,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG, $rootScope) {
     };
 
 
+
     /////// Krissy's try at Pins per board function //// 
 
     let getBoardOnlyPins = (boardId)=>{
